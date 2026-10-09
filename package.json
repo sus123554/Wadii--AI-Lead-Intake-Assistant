@@ -1,0 +1,19 @@
+{
+  "name": "wadii-ai-lead-intake-assistant",
+  "version": "1.0.0",
+  "description": "Wadii AI Lead Intake Assistant - Demo-ready prototype for Indian banquet & venue businesses",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,green\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build": "cd server && npm run build && cd ../client && npm run build",
+    "test": "cd server && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "author": "Sushil Sharma",
+  "license": "UNLICENSED"
+}
