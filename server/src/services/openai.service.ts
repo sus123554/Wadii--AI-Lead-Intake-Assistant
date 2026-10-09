@@ -168,8 +168,14 @@ Remember: Return ONLY valid JSON. Keep unknown values as null. Do not invent dat
         );
       }
       if (status === 429) {
+        if (process.env.ALLOW_DEMO_MOCK === "true") {
+          console.warn("⚠️ OpenAI 429 Quota Exceeded. Falling back to demo mock generator.");
+          const mock = this.generateMockResponse(input);
+          mock.confidenceNotes += " [Notice: Rendered via demo mode because OpenAI reported 429 quota exceeded]";
+          return mock;
+        }
         throw new Error(
-          "OpenAI Rate Limit / Quota Exceeded (429): You have exceeded your OpenAI API quota or rate limit. Please check your OpenAI account billing."
+          "OpenAI Rate Limit / Quota Exceeded (429): You have exceeded your OpenAI API quota or rate limit. Please check your OpenAI account billing at platform.openai.com or set ALLOW_DEMO_MOCK=true in server/.env for offline demonstration."
         );
       }
       if (status === 500 || status === 503) {
