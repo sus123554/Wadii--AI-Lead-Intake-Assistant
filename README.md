@@ -18,11 +18,10 @@ Managers typically waste 10–15 minutes manually deciphering each message, aski
 
 ## 📸 Screenshots & Walkthrough
 
-*(Replace with actual demo screenshots/GIFs prior to final submission)*
 
 | Dashboard Overview & Sample Inquiries | Structured CRM Card & WhatsApp Reply |
 | :---: | :---: |
-| !(https://drive.google.com/file/d/1-IONgKRirpdYVeJ-bAuVf4LJvi71MKxk/view?usp=sharing)) | ![Structured Results](https://via.placeholder.com/600x350/111827/10b981?text=Structured+Lead+Card+%2B+Suggested+Reply) |
+| ![Wadii AI Input](https://via.placeholder.com/600x350/111827/e3743c?text=Wadii+Lead+Intake+Inquiry+Desk) | ![Structured Results](https://via.placeholder.com/600x350/111827/10b981?text=Structured+Lead+Card+%2B+Suggested+Reply)|
 
 ---
 
