@@ -252,38 +252,10 @@ In a full-scale Wadii CRM deployment, this assistant would serve as an asynchron
 
 ---
 
-## ⚠️ Known Limitations
+##  Limitations
 
 1. **Single-Message Scope:** The prototype processes one message payload at a time. It does not yet carry conversational memory across a back-and-forth chat thread.
 2. **Calendar Year Anchoring:** Dates without a year (e.g., *"15 Nov"*) assume the upcoming occurrence. In rare cases where a customer is booking 14 months in advance, manager confirmation is required.
 3. **No Direct WhatsApp Dispatch:** The prototype generates a formatted reply with a 1-click **Copy Reply** button and a `wa.me` link; direct automated sending is omitted to prevent accidental client commitments without manager review.
 
 ---
-
-## 📹 Video Walkthrough Outline (for Candidate Brief Submission)
-
-**Candidate:** Sushil Sharma  
-**Target Length:** 3–5 minutes  
-**Format:** Screen recording with voiceover (English or Hindi)
-
-- **0:00–0:30:** Introduction & product purpose (AI assistant turning messy WhatsApp inquiries into structured banquet leads for Indian venues).
-- **0:30–1:00:** Folder structure overview (`client/` and `server/`), separation of concerns, and showing where the OpenAI call lives securely on the server.
-- **1:00–3:30:** Live demo with Sample A (Wedding) and Sample B (Corporate Urgent) -> Analyze -> show structured CRM card, urgency badge, missing info questions, and working Copy Reply button.
-- **3:30–4:30:** Demo Sample C (Birthday Vague) -> point out **honest null date handling** (`eventDate: null`) and generated follow-up questions.
-- **4:30–5:30:** Code walkthrough of `server/src/services/openai.service.ts` and `server/src/routes/leads.router.ts`, demonstrating Zod validation, error sanitization, and how the API key is kept server-side.
-- **Last 30s:** Summary of CRM integration potential and known limitations.
-
----
-
-## 🤝 Collaborator & Submission Checklist
-
-- [x] `POST /api/leads/analyze` works with official OpenAI API key in `server/.env`
-- [x] Frontend never sees or exposes the OpenAI API key
-- [x] Empty and whitespace-only inquiries rejected with HTTP 400
-- [x] At least 4 demo samples ready in 1 click (5 included: A, B, C, D, E)
-- [x] Structured CRM fields, missing info list, and working Copy Reply button
-- [x] Unknown dates remain honest `null` (verified with Sample C)
-- [x] `.env` is ignored by git; `.env.example` committed with placeholders
-- [x] Full test suite passes (`npm test`)
-- [x] Detailed README with prerequisites, setup, API contract, and CRM roadmap
-- [x] Invite GitHub user **`codescreen-in`** as collaborator (Write / Maintain access)
