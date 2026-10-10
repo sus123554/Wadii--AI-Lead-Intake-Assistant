@@ -14,9 +14,11 @@ export function createApp(): Express {
   app.use(cors());
   app.use(express.json({ limit: "1mb" }));
 
-  // Routes
+  // Routes (support both /api/* and direct path in serverless environments)
   app.use("/api/health", healthRouter);
+  app.use("/health", healthRouter);
   app.use("/api/leads", leadsRouter);
+  app.use("/leads", leadsRouter);
 
   // 404 Handler
   app.use((_req: Request, res: Response) => {

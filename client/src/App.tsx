@@ -57,11 +57,24 @@ export const App: React.FC = () => {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data: any;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        if (response.status === 404) {
+          throw new Error(
+            "API route '/api/leads/analyze' returned 404 Not Found. On Vercel, ensure your backend serverless function is configured."
+          );
+        }
+        throw new Error(
+          `Server returned an invalid response (${response.status}): ${text.slice(0, 100)}`
+        );
+      }
 
       if (!response.ok || !data.success) {
         const errorMsg =
-          data.message ||
+          data?.message ||
           `Server returned error ${response.status}: ${response.statusText}`;
         setError(errorMsg);
         setCurrentLead(null);
